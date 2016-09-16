@@ -76,4 +76,6 @@
 atlassian-ide-plugin.xml
 
 ## Controller and view for testing purpose ###
-
+nickolaus/multiple-icon-fonts-bundle/Controller/
+nickolaus/multiple-icon-fonts-bundle/Resources/views/*
+!nickolaus/multiple-icon-fonts-bundle/Resources/views/icons.html.twig
