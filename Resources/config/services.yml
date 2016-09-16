@@ -1,0 +1,6 @@
+services:
+    multiple_icon_fonts.icon.twig_extension:
+        class: nickolaus\MultipleIconFontsBundle\Twig\Extension\IconExtension
+        public: false
+        tags:
+            - { name: twig.extension }

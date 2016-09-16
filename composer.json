@@ -1,0 +1,31 @@
+{
+    "name": "nickolaus/multiple-icon-fonts-bundle",
+    "license": "MIT",
+    "type": "project",
+    "description": "Bundle containing a set of icon-fonts + twig-functions",
+    "autoload": {
+        "psr-4": {
+            "nickolaus\\MultipleIconFontsBundle\\": ""
+        }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.1.*",
+        "sensio/buzz-bundle":"1.1.*",
+        "sabberworm/php-css-parser": "8.*",
+        "mervick/material-design-icons": "2.2.*",
+        "components/font-awesome": "4.6.*",
+        "driftyco/ionicons": "2.0.*",
+        "twbs/bootstrap": "3.3.*"
+    },
+    "config": {
+        "platform": {
+            "php": "5.5.9"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.9s-dev"
+        }
+    }
+}

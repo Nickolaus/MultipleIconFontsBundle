@@ -1,0 +1,31 @@
+{% block icon %}
+    {% if 'fa' == fontFamily %}
+        {{ _self.fontawesome(iconIdentifier, fontFamily, options) }}
+    {% elseif 'glyphicon' == fontFamily %}
+        {{ _self.glyphicons(iconIdentifier, fontFamily, options) }}
+    {% elseif 'ion' == fontFamily %}
+        {{ _self.ionicons(iconIdentifier, fontFamily, options) }}
+    {% elseif 'mdi' == fontFamily %}
+        {{ _self.mdi(iconIdentifier, fontFamily, options) }}
+    {% endif %}
+{% endblock icon %}
+
+{% macro fontawesome(iconIdentifier, fontFamily, options ) -%}
+    <i class="{{ _self.classes(iconIdentifier, fontFamily, options) }}"></i>
+{%- endmacro %}
+
+{% macro glyphicons(iconIdentifier, fontFamily, options) -%}
+    <span class="{{ _self.classes(iconIdentifier, fontFamily, options) }}"></span>
+{%- endmacro %}
+
+{% macro ionicons(iconIdentifier, fontFamily, options) -%}
+    <i class="{{ _self.classes(iconIdentifier, fontFamily, options) }}"></i>
+{%- endmacro %}
+
+{% macro mdi(iconIdentifier, fontFamily, options) -%}
+    <i class="{{ _self.classes(iconIdentifier, fontFamily, options) }}"></i>
+{%- endmacro %}
+
+{% macro classes(iconIdentifier, fontFamily, options) -%}
+    {{ fontFamily }} {{ fontFamily }}-{{ iconIdentifier }}{% for option in options|default(null) %} icon-{{ option }}{% endfor %}
+{%- endmacro %}
