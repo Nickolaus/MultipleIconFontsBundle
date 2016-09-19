@@ -20,6 +20,7 @@ use Sabberworm\CSS\Value\URL;
 use Sabberworm\CSS\Value\Value;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -65,7 +66,8 @@ class InstallFontsCommand extends ContainerAwareCommand
     {
         $this
             ->setName('nickolaus:install:fonts')
-            ->setDescription("Install fonts");
+            ->setDescription("Install fonts")
+            ->addOption('develop', 'dev', InputOption::VALUE_OPTIONAL, 'Set this to true for src developing', false);
     }
 
     /**
@@ -78,12 +80,21 @@ class InstallFontsCommand extends ContainerAwareCommand
         $this->kernel = $this->container->get('kernel');
         $this->rootDir = sprintf('%s%s%s%s', $this->kernel->getRootDir(), DIRECTORY_SEPARATOR, '..', DIRECTORY_SEPARATOR);
 
-        $this->destinationPublicRoot = $destination = $this->rootDir .
-            'src' . DIRECTORY_SEPARATOR . 'nickolaus' . DIRECTORY_SEPARATOR .
-            'MultipleIconFontsBundle' . DIRECTORY_SEPARATOR . 'Resources'  . DIRECTORY_SEPARATOR .
-            'public' . DIRECTORY_SEPARATOR;
+        if ($input->getOption('develop')) {
+            $this->destinationPublicRoot = $destination = $this->rootDir .
+                'src' . DIRECTORY_SEPARATOR . 'nickolaus' . DIRECTORY_SEPARATOR .
+                'MultipleIconFontsBundle' . DIRECTORY_SEPARATOR . 'Resources'  . DIRECTORY_SEPARATOR .
+                'public' . DIRECTORY_SEPARATOR;
+        }
+        else {
+            $this->destinationPublicRoot = $destination = $this->rootDir .
+                'vendor' . DIRECTORY_SEPARATOR . 'nickolaus' . DIRECTORY_SEPARATOR .
+                'multiple-icon-fonts-bundle' . DIRECTORY_SEPARATOR . 'Resources'  . DIRECTORY_SEPARATOR .
+                'public' . DIRECTORY_SEPARATOR;
+        }
 
-            $this->filesystem = new Filesystem();
+
+        $this->filesystem = new Filesystem();
 
         $this->iconSets = FontLocation::all();
         $this->iconPrefix = IconPrefix::all();
@@ -296,6 +307,7 @@ $this->downloadFromUrl('');
             foreach ($declarationBlock->getSelectors() as $selector) {
 
                 $selectorAsString = $selector->getSelector();
+
                 if ('properties' === $filter) {
                     $selectorIsIcon = $this->filterProperties($mergedDocument, $declarationBlock);
                 }
@@ -336,11 +348,13 @@ $this->downloadFromUrl('');
 
                 /** @noinspection ForeachInvariantsInspection */
                 for ($i = 0; $i < $this->numberOfIgnoredClasses; $i++) {
-                    if (false !== strpos($selectorAsString, $this->ignoredCssClasses[$i])) {
+
+                    if (strpos($selectorAsString,$this->ignoredCssClasses[$i])) {
                         $classIsAllowed = false;
                         break;
                     }
                 }
+
                 if ($classIsAllowed) {
                     $mergedDocument->append($declarationBlock);
                     return true;
