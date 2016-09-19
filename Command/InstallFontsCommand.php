@@ -349,8 +349,10 @@ $this->downloadFromUrl('');
                 /** @noinspection ForeachInvariantsInspection */
                 for ($i = 0; $i < $this->numberOfIgnoredClasses; $i++) {
 
-                    if (strpos($selectorAsString,$this->ignoredCssClasses[$i])) {
-                        $classIsAllowed = false;
+                    if ($position = strpos($selectorAsString, $this->ignoredCssClasses[$i])) {
+                        if ($position + strlen($this->ignoredCssClasses[$i]) === strlen($selectorAsString)) {
+                            $classIsAllowed = false;
+                        }
                         break;
                     }
                 }
