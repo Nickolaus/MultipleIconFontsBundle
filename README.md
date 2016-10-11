@@ -11,7 +11,40 @@ Currently bundled icon-font-sets:
    
 
 ## Usage:
-   - in progress
+Unitl a tagged release is published use:
+```sh
+composer require nickolaus/multiple-icon-fonts-bundle:dev-master
+```
+
+Or config via composer.json
+``` json
+{
+    "require": {
+        "nickolaus/multiple-icon-fonts-bundle": "dev-master"
+    }
+}
+```
+
+#### Twig function calls:
+```twig
+{{ icon('title', 'fontset', 'icon-attributes' }}
+```
+```twig
+{{ icon_fontawesome('title', 'icon-attributes' }}
+```
+```twig
+{{ icon_glyphicon('title', 'icon-attributes' }}
+```
+```twig
+{{ icon_material_design('title', 'icon-attributes' }}
+```
+```twig
+{{ icon_ionicons('title', 'icon-attributes' }}
+```
+All `icon-attributes` are prefixes with `icon-`
+
+#### Valid icon attributes are:
+   - in progress....
 
 
 ### Planned Features:
