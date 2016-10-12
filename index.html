@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Multipleiconfontsbundle : SymfonyBundle using multiple icon fonts + Twig Function">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Multipleiconfontsbundle</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Nickolaus/MultipleIconFontsBundle">View on GitHub</a>
+
+          <h1 id="project_title">Multipleiconfontsbundle</h1>
+          <h2 id="project_tagline">SymfonyBundle using multiple icon fonts + Twig Function</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Nickolaus/MultipleIconFontsBundle/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Nickolaus/MultipleIconFontsBundle/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="multipleiconfontsbundle" class="anchor" href="#multipleiconfontsbundle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MultipleIconFontsBundle</h1>
+
+<p>SymfonyBundle using multiple icon fonts + Twig Function</p>
+
+<p>Currently bundled icon-font-sets:</p>
+
+<ul>
+<li><a href="https://github.com/components/font-awesome">FontAwesome</a></li>
+<li><a href="https://github.com/twbs/bootstrap">Glyphicons</a></li>
+<li><a href="https://github.com/mervick/material-design-icons">MaterialIcons</a></li>
+<li><a href="https://github.com/driftyco/ionicons">Ionicons</a></li>
+</ul>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage:</h2>
+
+<p>Until a tagged release is published use:</p>
+
+<div class="highlight highlight-source-shell"><pre>composer require nickolaus/multiple-icon-fonts-bundle:dev-master</pre></div>
+
+<p>Or config via composer.json</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>nickolaus/multiple-icon-fonts-bundle<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
+
+<h4>
+<a id="twig-function-calls" class="anchor" href="#twig-function-calls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Twig function calls:</h4>
+
+<div class="highlight highlight-text-html-twig"><pre>{{ icon(<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>fontset<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>icon-attributes<span class="pl-pds">'</span></span> }}</pre></div>
+
+<div class="highlight highlight-text-html-twig"><pre>{{ icon_fontawesome(<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>icon-attributes<span class="pl-pds">'</span></span> }}</pre></div>
+
+<div class="highlight highlight-text-html-twig"><pre>{{ icon_glyphicon(<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>icon-attributes<span class="pl-pds">'</span></span> }}</pre></div>
+
+<div class="highlight highlight-text-html-twig"><pre>{{ icon_material_design(<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>icon-attributes<span class="pl-pds">'</span></span> }}</pre></div>
+
+<div class="highlight highlight-text-html-twig"><pre>{{ icon_ionicons(<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>icon-attributes<span class="pl-pds">'</span></span> }}</pre></div>
+
+<p>All <code>icon-attributes</code> are prefixes with <code>icon-</code></p>
+
+<h4>
+<a id="valid-icon-attributes-are" class="anchor" href="#valid-icon-attributes-are" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Valid icon attributes are:</h4>
+
+<ul>
+<li>in progress....</li>
+</ul>
+
+<h3>
+<a id="planned-features" class="anchor" href="#planned-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Planned Features:</h3>
+
+<ul>
+<li>octicons intetration</li>
+<li>foundation-icons interation</li>
+</ul>
+
+<h3>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known Issues:</h3>
+
+<ul>
+<li>css classes for rotating are not working on all font-sets</li>
+</ul>
+
+<h3>
+<a id="thanks-to" class="anchor" href="#thanks-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks to:</h3>
+
+<ul>
+<li><a href="http://fontawesome.io/">@font-awesome</a></li>
+<li><a href="http://getbootstrap.com/">@bootstrap</a></li>
+<li><a href="https://github.com/mervick">@mervick</a></li>
+<li><a href="https://github.com/driftyco">@driftyco</a></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Multipleiconfontsbundle maintained by <a href="https://github.com/Nickolaus">Nickolaus</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
